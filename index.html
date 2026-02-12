@@ -3,62 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Підключення LED стрічки Cybergear</title>
+  <title>Підключення: Розумна світлодіодна стрічка</title>
   <style>
     body { font-family: Arial, sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; line-height: 1.5; }
     h1 { font-size: 28px; margin-bottom: 8px; }
+    p { color: #222; }
     .card { background: #f7f7f7; padding: 16px; border-radius: 12px; margin: 16px 0; }
     .btn { display: inline-block; padding: 12px 18px; border-radius: 10px; background: #111; color: #fff; text-decoration: none; font-weight: bold; }
-    .links a { display: block; margin: 6px 0; }
     details { margin: 10px 0; }
+    .store-badges { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .store-badges a { display: inline-block; }
+    .store-badges img { height: 56px; width: auto; display: block; }
+    .hint { font-size: 12px; color: #666; margin-top: 8px; }
   </style>
 </head>
 <body>
 
-  <h1>Підключення LED стрічки Cybergear</h1>
-  <p>Швидка інструкція, як підключити LED стрічку до застосунку.</p>
+  <h1>Розумна світлодіодна стрічка</h1>
+  <p>Ця сторінка допоможе швидко підключити стрічку до телефону.</p>
 
   <div class="card">
     <h2>Інструкція підключення</h2>
     <ol>
-      <li><b>Підключіть стрічку до живлення</b></li>
-      <li><b>Увімкніть Bluetooth</b> на телефоні</li>
-      <li><b>Відкрийте застосунок Cybergear</b></li>
-      <li>Натисніть <b>“Додати пристрій” → “LED стрічка”</b></li>
-      <li>Оберіть вашу стрічку зі списку та підтвердіть підключення</li>
+      <li>Підключіть LED стрічку та контролер до живлення (стрічка має увімкнутись/моргнути).</li>
+      <li>Підійдіть ближче до контролера (1–2 метри).</li>
+      <li>Завантажте та встановіть застосунок <b>Smart Life</b>.</li>
+      <li>Увімкніть Bluetooth на телефоні.</li>
+      <li>Відкрийте застосунок та увійдіть/створіть акаунт (якщо попросить).</li>
+      <li>Натисніть <b>“Додати пристрій”</b> → оберіть <b>Освітлення</b> / <b>LED стрічка</b> (назва може відрізнятися).</li>
+      <li>Дотримуйтесь підказок у застосунку та підтвердіть підключення.</li>
     </ol>
   </div>
 
-  <a class="btn" href="#">Відкрити застосунок</a>
+  <a id="openApp" class="btn" href="#">Відкрити застосунок / Store</a>
+  <div class="hint" id="autoHint" style="display:none;"></div>
 
-  <div class="card links">
+  <div class="card" id="storeBlock">
     <h2>Завантажити застосунок</h2>
-    <a href="#">App Store (iPhone)</a>
-    <a href="#">Google Play (Android)</a>
+
+    <div class="store-badges" style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items:start;">
+      <div style="text-align:center;">
+        <div style="font-size:12px; color:#666; margin-bottom:6px;">Для iPhone</div>
+        <a id="appStoreLink" href="https://apps.apple.com/rs/app/smartlife-smart-living/id1115101477?platform=watch" target="_blank" rel="noopener">
+          <img src="assets/app-store-badge.png" alt="Available on the App Store" />
+        </a>
+      </div>
+
+      <div style="text-align:center;">
+        <div style="font-size:12px; color:#666; margin-bottom:6px;">Для Android</div>
+        <a id="playStoreLink" href="https://play.google.com/store/search?q=smart+life&c=apps&hl=ru" target="_blank" rel="noopener">
+          <img src="assets/google-play-badge.png" alt="Get it on Google Play" />
+        </a>
+      </div>
+    </div>
+
+    <div class="hint">Якщо автоматичний перехід не спрацював — натисніть потрібний Store вручну.</div>
   </div>
 
-  <div class="card">
-    <h2>Відео-інструкція</h2>
-    <p>Подивіться коротке відео з налаштуванням:</p>
-    <a href="#">YouTube: Як підключити LED стрічку Cybergear</a>
+<div class="card">
+  <h2>Відео-інструкція</h2>
+  <p>Подивіться коротке відео з підключенням:</p>
+
+  <div style="position:relative; padding-top:56.25%; border-radius:12px; overflow:hidden;">
+    <iframe
+      src="https://www.youtube.com/embed/dJSs5tMkQ9Y"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      style="position:absolute; top:0; left:0; width:100%; height:100%;"
+    ></iframe>
   </div>
+
+  <div class="hint">Якщо відео не відображається — відкрийте його у YouTube:
+    <a href="https://www.youtube.com/watch?v=dJSs5tMkQ9Y" target="_blank" rel="noopener">посилання</a>
+  </div>
+</div>
+
 
   <div class="card">
     <h2>FAQ</h2>
 
     <details>
-      <summary>Стрічка не відображається в застосунку</summary>
-      <p>Переконайтеся, що вона увімкнена, телефон поруч, Bluetooth активний. Спробуйте вимкнути/увімкнути живлення.</p>
+      <summary>Застосунок не знаходить стрічку — що робити?</summary>
+      <p>Перевірте живлення, підійдіть ближче (1–2 м), перезапустіть Bluetooth та спробуйте ще раз.</p>
     </details>
 
     <details>
-      <summary>Чи можна керувати стрічкою без інтернету?</summary>
-      <p>Так, керування працює через Bluetooth. Інтернет потрібен лише для оновлень.</p>
+      <summary>Чи потрібно підключати стрічку в налаштуваннях Bluetooth?</summary>
+      <p>Ні. Підключення робиться всередині застосунку Smart Life.</p>
     </details>
 
     <details>
-      <summary>Як скинути налаштування стрічки?</summary>
-      <p>Зазвичай достатньо вимкнути живлення на 5–10 секунд і увімкнути знову.</p>
+      <summary>Підключилось, але не керується</summary>
+      <p>Закрийте застосунок повністю й відкрийте знову. Переконайтесь, що дозволи Bluetooth увімкнені.</p>
     </details>
 
   </div>
@@ -66,6 +104,34 @@
   <p style="font-size: 12px; color: #666;">
     Підтримка: support@cybergear.example
   </p>
+
+  <script>
+    (function () {
+      const APP_STORE = "https://apps.apple.com/rs/app/smartlife-smart-living/id1115101477?platform=watch";
+      const PLAY_STORE = "https://play.google.com/store/search?q=smart+life&c=apps&hl=ru";
+
+      const ua = navigator.userAgent || "";
+      const isIOS = /iPad|iPhone|iPod/i.test(ua);
+      const isAndroid = /Android/i.test(ua);
+
+      const openBtn = document.getElementById('openApp');
+      const autoHint = document.getElementById('autoHint');
+
+      openBtn.href = '#';
+      autoHint.style.display = 'none';
+
+      if (isIOS) {
+        openBtn.href = APP_STORE;
+        autoHint.style.display = 'block';
+        autoHint.textContent = 'Ми визначили iPhone/iPad — кнопка відкриє App Store.';
+      } else if (isAndroid) {
+        openBtn.href = PLAY_STORE;
+        autoHint.style.display = 'block';
+        autoHint.textContent = 'Ми визначили Android — кнопка відкриє Google Play.';
+      }
+      // No auto-redirect: user should read instructions first
+    })();
+  </script>
 
 </body>
 </html>
